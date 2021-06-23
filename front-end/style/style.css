@@ -1,0 +1,50 @@
+.brand {
+    font-family: "Finger Paint", cursive;
+    width: auto;
+}
+
+.navbar.navbar-expand-lg.navbar-light {
+    background-color: #ffe4c4;
+}
+
+.nav-item {
+    padding-right: 50px;
+}
+
+.bg-banniere {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.produits_bloc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.produits-card {
+    height: auto;
+}
+
+.produits {
+    margin-top: 40px;
+}
+
+.card_button {
+    display: flex;
+    padding: 20px;
+    background-color: #ffe4c4;
+}
+
+/* Footer */
+
+.bg-light {
+    background-color: #ffe4c4;
+}
