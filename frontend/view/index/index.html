@@ -14,8 +14,7 @@
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
 
-	<!-- Bootstrap and css -->
-	<link rel="stylesheet" href="./front-end/style/style.css">
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
 		integrity="undefined" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="undefined"
@@ -28,6 +27,9 @@
 	<!-- Fontawesome -->
 	<script src="https://kit.fontawesome.com/5627f331db.js" crossorigin="anonymous"></script>
 
+	<!-- Style css -->
+	<link rel="stylesheet" href="style/style.css">
+
 	<title>Orinoco</title>
 </head>
 
@@ -36,8 +38,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container-fluid mx-2 mx-lg-5">
-				<img class="img-fluid mx-4 mx-lg-0 mr-auto w-25" src="./back-end/images/logo.png"
-					alt="Logo de Orinoco" />
+				<img class="img-fluid mx-4 mx-lg-0 mr-auto w-25" src="/backend/images/logo.png" alt="Logo de Orinoco" />
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
 					aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,43 +64,25 @@
 		</section>
 	</header>
 
-	<!-- Produits -->
-	<section class="produits align-items-center container-fluid-sm d-flex">
+	<!-- Main -->
+	<div class="collapse navbar-collapse1" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="../index/index.html">Notre séléction de caméras vintages</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav my-2 my-lg-0">
+			<li class="nav-item active">
+				<a class="nav-link" href="../produit/produit.html" title="Nos produits"><i
+						class="fas fa-shopping-cart"></i></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="../panier/panier.html" title="Mon panier"><i
+						class="fas fa-shopping-basket"></i></a>
+			</li>
+		</ul>
+	</div>
 
-		<div class="produits container">
-			<div class="row produits_bloc">
-				<div class="produits-card col-sm-2">
-					<a class="btn btn-secondary btn-lg active" role="button" href="front-end/produit.html"
-						aria-pressed="true">Acheter</a>
-					<img class="bg-banniere center-block" src="back-end/images/vcam_1.jpg" alt="Caméra vintage" />
-				</div>
-
-				<div class="produits-card col-sm-2">
-					<a class="btn btn-secondary btn-lg active" role="button" href="front-end/produit.html"
-						aria-pressed="true">Acheter</a>
-					<img class="bg-banniere center-block" src="back-end/images/vcam_2.jpg" alt="Caméra vintage" />
-				</div>
-
-				<div class="produits-card col-sm-2">
-					<a class="btn btn-secondary btn-lg active" role="button" href="front-end/produit.html"
-						aria-pressed="true">Acheter</a>
-					<img class="bg-banniere center-block" src="back-end/images/vcam_3.jpg" alt="Caméra vintage" />
-				</div>
-
-				<div class="produits-card col-sm-2">
-					<a class="btn btn-secondary btn-lg active" role="button" href="front-end/produit.html"
-						aria-pressed="true">Acheter</a>
-					<img class="bg-banniere center-block" src="back-end/images/vcam_4.jpg" alt="Caméra vintage" />
-				</div>
-
-				<div class="produits-card col-sm-2">
-					<a class="btn btn-secondary btn-lg active" role="button" href="front-end/produit.html"
-						aria-pressed="true">Acheter</a>
-					<img class="bg-banniere center-block" src="back-end/images/vcam_5.jpg" alt="Caméra vintage" />
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- Footer -->
 	<footer class="text-center text-lg-start bg-light text-muted">
@@ -121,6 +104,9 @@
 			</div>
 		</section>
 	</footer>
+	<script src="../../js/camera.js"></script>
+	<script src="index.js"></script>
+
 </body>
 
 </html>
