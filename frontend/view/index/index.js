@@ -1,6 +1,6 @@
 loadConfig().then(data => {
     config = data;
-    fetch(config.host + "/api/cameras").then(data => data.json())
+    fetch(config.host + "/api/cameras/").then(data => data.json())
         .then(jsonAllCameras => {
             for (let jsonCameras of jsonAllCameras) {
                 let cameras = new Camera(jsonCameras);
@@ -13,7 +13,7 @@ loadConfig().then(data => {
                                                                                 <div class="block2">
                                                                                     <h2 class="nom_produits">${cameras.name}</h2>
                                                                                     <p class="card-price">${cameras.price / 100} &#8364;</p>
-                                                                                    <a href="../produit/produit.html" class="btn btn-info justify-content-center mx-auto">Le produit</a>
+                                                                                    <a href="../produit/produit.html?toto=${cameras._id}" class="btn btn-info justify-content-center mx-auto">Le produit</a>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
