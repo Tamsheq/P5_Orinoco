@@ -18,11 +18,14 @@ loadConfig().then(data => {
                     <label for="select_lenses">
                         <h3>Modifier la lentille de votre appareil</h3></label>
   
-                            <select class="section__choice" name="lenses" id="select_lenses"></select>
+                            <select class="section__choice" name="lenses" src="${response.lenses}"></select>
                             <button class="addPanier btn btn-info justify-content-center mx-auto"><b>Ajouter au panier</b><i class="fas fa-cart-arrow-down"></i></button>`;
-            function ajouterAuPanier() {
-                const lenseIntoBag = document.getElementById("lentille");
-                console.log(lenseIntoBag.value);
+
+            function addLenses(product) {
+                const versionChoice = document.getElementById("option");
+                for (let lenses of product.lenses) {
+                    versionChoice.innerHTML += `<option value="${lenses}">${lenses}</option>`;
+                }
             }
         });
 });
