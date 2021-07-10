@@ -56,29 +56,40 @@
         </div>
     </nav>
 
-    <!-- Panier -->
+    <!-- Panier vide -->
+    <section id="panierVide">
+        <div class="container my-3 py-1">
+            <div class="text-center my-5 p-3 mb-5 bg-body">
+                <h1 class="fs-1 font-weight-bold text-secondary my-5">Votre panier est vide</h1>
+                <a role="button" class="btn btn-secondary my-3" href="../index/index.html">Commencez vos achats dès
+                    maintenant</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Panier -->
     <section class="container my-5 align-middle">
         <div class="d-none" id="bag">
             <p class="text-center fs-4 text-light bg-secondary bag d-none">Votre panier</p>
             <div class="table-responsive">
-                <table class="table table-hover my-auto mx-0" <thead>
-                    <tr class="text-center fs-5" <th scole="col">Produit</th>
-                        <th scole="col">Quantité</th>
-                        <th scole="col">Nom</th>
-                        <th scole="col">Option</th>
-                        <th scole="col">Prix</th>
-                        <th scole="col">Sous-total</th>
+                <table class="table table-hover my-auto mx-0"></table>
+                <tr class="text-center fs-5">
+                    <th scole="col">Produit</th>
+                    <th scole="col">Quantité</th>
+                    <th scole="col">Nom</th>
+                    <th scole="col">Option</th>
+                    <th scole="col">Prix</th>
+                    <th scole="col">Sous-total</th>
+                </tr>
+                </thead>
+                <tbody id="produitsPanier"></tbody>
+                <tfoot>
+                    <tr class="text-center fs-5 bg-light">
+                        <th colspan="4" class="bg-white"></th>
+                        <th colspan="1">Total à payer : ></th>
+                        <th colspan="1" id="totalPrice"></th>
                     </tr>
-                    </thead>
-                    <tbody id="produitsPanier" </tbody>
-                    <tfoot>
-                        <tr class="text-center fs-5 bg-light">
-                            <th colspan="4" class="bg-white"></th>
-                            <th colspan="1">Total à payer : </th>
-                            <th colspan="1" id="totalPrice" </th>
-                        </tr>
-                    </tfoot>
+                </tfoot>
                 </table>
             </div>
         </div>
