@@ -26,7 +26,7 @@
     <link rel="icon" href="https://img.icons8.com/color/24/000000/slr-camera.png" />
 
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="./front-end/css/fontawesome/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/5627f331db.js" crossorigin="anonymous"></script>
 
     <title>Orinoco - Panier</title>
 </head>
@@ -36,7 +36,7 @@
     <!-- Header and nav-menu -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid mx-2 mx-lg-5">
-            <img class="img-fluid mx-4 mx-lg-0 mr-auto w-25" src="../back-end/images/logo.png" alt="Logo de Orinoco" />
+            <img class="img-fluid mx-4 mx-lg-0 mr-auto w-25" src="/backend/images/logo.png" alt="Logo de Orinoco" />
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,14 +46,66 @@
         <div class="collapse navbar-collapse ms-4" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../index.html">Accueil</a>
+                    <a class="nav-link active" aria-current="page" href="/frontend/view/index/index.html">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="produit.html" id="basketPreview">Produits</a>
+                    <a class="nav-link active" href="/frontend/view/produit/produit.html"
+                        id="basketPreview">Produits</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <!-- Panier -->
+
+    <section class="container my-5 align-middle">
+        <div class="d-none" id="bag">
+            <p class="text-center fs-4 text-light bg-secondary bag d-none">Votre panier</p>
+            <div class="table-responsive">
+                <table class="table table-hover my-auto mx-0" <thead>
+                    <tr class="text-center fs-5" <th scole="col">Produit</th>
+                        <th scole="col">Quantité</th>
+                        <th scole="col">Nom</th>
+                        <th scole="col">Option</th>
+                        <th scole="col">Prix</th>
+                        <th scole="col">Sous-total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="produitsPanier" </tbody>
+                    <tfoot>
+                        <tr class="text-center fs-5 bg-light">
+                            <th colspan="4" class="bg-white"></th>
+                            <th colspan="1">Total à payer : </th>
+                            <th colspan="1" id="totalPrice" </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <div class="me-5 d-none d-lg-block">
+                <span>Restez connecté avec nos réseaux sociaux :</span>
+            </div>
+
+            <div>
+                <a aria-label="facebook" class="me-4 text-reset" href="https://facebook.fr"><span
+                        class="fa fa-facebook icon-md"></span></a>
+                <a aria-label="twitter" class="me-4 text-reset" href="https://twitter.com"><span
+                        class="fa fa-twitter icon-md"></span></a>
+                <a aria-label="instagram" class="me-4 text-reset" href="http://instagram.com"><span
+                        class="fa fa-instagram icon-md"></span></a>
+                <a aria-label="Linkdin" class="me-4 text-reset" href="http://linkedin.com"><span
+                        class="fa fa-linkedin icon-md"></span></a>
+                </a>
+            </div>
+        </section>
+    </footer>
+    <script src="../../js/camera.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="produit.js"></script>
 </body>
 
 </html>
