@@ -49,15 +49,14 @@
                     <a class="nav-link active" aria-current="page" href="/frontend/view/index/index.html">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/frontend/view/produit/produit.html"
-                        id="basketPreview">Produits</a>
+                    <a class="nav-link active" href="/frontend/view/produit/produit.html" id="bagPreview">Produits</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <!-- Panier vide -->
-    <section id="panierVide">
+    <section id="emptyBag">
         <div class="container my-3 py-1">
             <div class="text-center my-5 p-3 mb-5 bg-body">
                 <h1 class="fs-1 font-weight-bold text-secondary my-5">Votre panier est vide</h1>
@@ -91,6 +90,14 @@
                     </tr>
                 </tfoot>
                 </table>
+            </div>
+            <div class="text-center my-5 row" id="cacheButton">
+                <div class="col-12 col-sm-6 my-4">
+                    <button type="submit" class="btn btn-secondary mx-5" id="validationBag">Valider le panier</button>
+                </div>
+                <div class="col-12 col-sm-6 my-4">
+                    <button type="button" class="btn btn-danger mx-5">Vider le panier</button>
+                </div>
             </div>
         </div>
     </section>
