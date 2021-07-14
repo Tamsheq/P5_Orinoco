@@ -26,7 +26,43 @@ loadConfig().then(data => {
                     versionChoice.innerHTML += `<option value="${lenses}">${lenses}</option>`;
                 }
             }
-            addLenses(response)
+            addLenses(response);
+
+            const addPanier = document.getElementsByClassName("addPanier");
+            addPanier.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                // création du produit
+                let objectProduct = new Product(
+                    newId,
+                    product.name,
+                    product.description,
+                    product.price,
+                    list.value,
+                    quantity.value,
+                    product.imageUrl
+                );
+                // on vérifie si alreadyPresent, si oui on sauvegarde dans localStorage
+                let isAlreadyPresent = false;
+                let indexModification;
+                for (products of bag) {
+                    switch (products.option) {
+                        case objectProduct.option:
+                            isAlreadyPresent = true;
+                            indexModification = bag.indexOf(products);
+                    }
+                }
+
+                // si alreadyPresent modification seulement sur la quantité
+                if (isAlreadyPresent) {
+                    bag[indexModification].quantity + +objectProduct.quantity;
+                    localStorage.setItem("cameras", JSON.stringify(bag));
+                    // si non, on push le produit dans localStorage
+                } else {
+                    bag.push(objectProduct);
+                    localStorage.setItem("cameras", JSON.stringify(bag));
+                }
+            })
         });
 });
 /* <p class="card-text">${cameras.description}</p> */

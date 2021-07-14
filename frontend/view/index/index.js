@@ -5,7 +5,7 @@ loadConfig().then(data => {
             for (let jsonCameras of jsonAllCameras) {
                 let cameras = new Camera(jsonCameras);
                 document.querySelector(".container").innerHTML += `<div class="block_cameras">
-                                                                        <div class="block1">      
+                                                                        <div class="block1 rounded">      
                                                                             </div>
                                                                             <img src="${cameras.imageUrl}" class="img_produits">
                                                                                 <span class="fa-stack fa-2x" data-id=${cameras._id}>

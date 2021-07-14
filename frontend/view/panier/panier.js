@@ -12,15 +12,15 @@ if (emptyBag.lenght < 1) {
 
     const fullBag = document.getElementById("bag");
     fullBag.classList.toggle("d-none");
-    for (product of basket) {
-        displayProductionListTable(product);
+    for (product of bag) {
+        displayProductListTable(product);
     }
 
     // Ajout du produit
     function addProduct(event) {
         const index = event.target.getAttribute("data-index");
         bag[index].quantity++;
-        localStorage.setItem("cameras", JSON.stringify(basket));
+        localStorage.setItem("cameras", JSON.stringify(bag));
         location.reload();
     }
 
