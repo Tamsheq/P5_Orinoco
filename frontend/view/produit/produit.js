@@ -1,6 +1,6 @@
 const query = window.location.search;
 const urlParams = new URLSearchParams(query);
-const id = urlParams.get('toto');
+const id = urlParams.get('id');
 
 loadConfig().then(data => {
     config = data;
@@ -17,52 +17,23 @@ loadConfig().then(data => {
                         <h3>Modifier la lentille de votre appareil</h3></label>
   
                             <select class="section__choice" name="lenses" src="${response.lenses}"></select>
-                            <button class="addPanier btn btn-info justify-content-center mx-auto"><b>Ajouter au panier</b><i class="fas fa-cart-arrow-down"></i></button>`;
+                            <button onClick="() => console.log('tutu')" class="addPanier btn btn-info justify-content-center mx-auto"><b>Ajouter au panier</b><i class="fas fa-cart-arrow-down"></i></button>`;
 
             function addLenses(product) {
                 const versionChoice = document.getElementsByClassName("section__choice")[0];
                 for (let lenses of product.lenses) {
-                    console.log(lenses)
                     versionChoice.innerHTML += `<option value="${lenses}">${lenses}</option>`;
                 }
             }
             addLenses(response);
 
-            const addPanier = document.getElementsByClassName("addPanier");
+            const addPanier = document.querySelector(".addPanier");
+            console.log(addPanier)
             addPanier.addEventListener("click", (e) => {
-                e.preventDefault();
+                localStorage.setItem("cameras", id);
 
-                // création du produit
-                let objectProduct = new Product(
-                    newId,
-                    product.name,
-                    product.description,
-                    product.price,
-                    list.value,
-                    quantity.value,
-                    product.imageUrl
-                );
-                // on vérifie si alreadyPresent, si oui on sauvegarde dans localStorage
-                let isAlreadyPresent = false;
-                let indexModification;
-                for (products of bag) {
-                    switch (products.option) {
-                        case objectProduct.option:
-                            isAlreadyPresent = true;
-                            indexModification = bag.indexOf(products);
-                    }
-                }
-
-                // si alreadyPresent modification seulement sur la quantité
-                if (isAlreadyPresent) {
-                    bag[indexModification].quantity + +objectProduct.quantity;
-                    localStorage.setItem("cameras", JSON.stringify(bag));
-                    // si non, on push le produit dans localStorage
-                } else {
-                    bag.push(objectProduct);
-                    localStorage.setItem("cameras", JSON.stringify(bag));
-                }
             })
+
+
         });
 });
-/* <p class="card-text">${cameras.description}</p> */
