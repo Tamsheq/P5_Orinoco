@@ -2,6 +2,7 @@ const query = window.location.search;
 const urlParams = new URLSearchParams(query);
 const id = urlParams.get('id');
 
+
 loadConfig().then(data => {
     config = data;
     fetch(`${config.host}/api/cameras/${id}`).then(data => data.json())
@@ -17,7 +18,7 @@ loadConfig().then(data => {
                         <h3>Modifier la lentille de votre appareil</h3></label>
   
                             <select class="section__choice" name="lenses" src="${response.lenses}"></select>
-                            <button onClick="() => console.log('tutu')" class="addPanier btn btn-info justify-content-center mx-auto"><b>Ajouter au panier</b><i class="fas fa-cart-arrow-down"></i></button>`;
+                            <button class="addPanier btn btn-info justify-content-center mx-auto"><b>Ajouter au panier</b><i class="fas fa-cart-arrow-down"></i></button>`;
 
             function addLenses(product) {
                 const versionChoice = document.getElementsByClassName("section__choice")[0];
@@ -30,8 +31,13 @@ loadConfig().then(data => {
             const addPanier = document.querySelector(".addPanier");
             console.log(addPanier)
             addPanier.addEventListener("click", (e) => {
-                localStorage.setItem("cameras", id);
-
+                var monobjet = {
+                    id: id,
+                    lenses: document.querySelector('select[name="lenses"]').value
+                };
+                var monobjet_json = JSON.stringify(monobjet);
+                localStorage.setItem("camera", monobjet_json);
+                document.location.href = "http://127.0.0.1:5500/frontend/view/panier/panier.html";
             })
 
 

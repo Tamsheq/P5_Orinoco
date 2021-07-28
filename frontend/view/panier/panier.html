@@ -57,7 +57,7 @@
 
     <!-- Panier vide -->
     <section id="emptyBag">
-        <div class="container my-3 py-1">
+        <div class="my-3 py-1">
             <div class="text-center my-5 p-3 mb-5 bg-body">
                 <h1 class="fs-1 font-weight-bold text-secondary my-5">Votre panier est vide</h1>
                 <a role="button" class="btn btn-secondary my-3" href="../index/index.html">Commencez vos achats dès
@@ -67,28 +67,38 @@
     </section>
 
     <!-- Panier -->
-    <section class="container my-5 align-middle">
-        <div class="d-none" id="bag">
-            <p class="text-center fs-4 text-light bg-secondary bag d-none">Votre panier</p>
+    <section id="orderForm" class="container my-5 align-middle">
+        <div id="bag">
+            <p class="text-center fs-4 text-light bg-secondary bag">Votre panier</p>
             <div class="table-responsive">
-                <table class="table table-hover my-auto mx-0"></table>
-                <tr class="text-center fs-5">
-                    <th scole="col">Produit</th>
-                    <th scole="col">Quantité</th>
-                    <th scole="col">Nom</th>
-                    <th scole="col">Option</th>
-                    <th scole="col">Prix</th>
-                    <th scole="col">Sous-total</th>
-                </tr>
-                </thead>
-                <tbody id="container"></tbody>
-                <tfoot>
-                    <tr class="text-center fs-5 bg-light">
-                        <th colspan="4" class="bg-white"></th>
-                        <th colspan="1">Total à payer : ></th>
-                        <th colspan="1" id="totalPrice"></th>
-                    </tr>
-                </tfoot>
+                <table class="table table-hover my-auto mx-0">
+                    <thead>
+                        <tr class="text-center fs-5">
+                            <th scole="col">Produit</th>
+                            <th scole="col">Quantité</th>
+                            <th scole="col">Nom</th>
+                            <th scole="col">Option</th>
+                            <th scole="col">Prix</th>
+                            <th scole="col">Sous-total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="container">
+                        <tr>
+                            <td class="product"></td>
+                            <td class="quantity"></td>
+                            <td class="name"></td>
+                            <td class="option"></td>
+                            <td class="price"></td>
+                            <td class="total"></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="text-center fs-5 bg-light">
+                            <th colspan="4" class="bg-white"></th>
+                            <th colspan="1">Total à payer :</th>
+                            <th colspan="1" id="totalPrice"></th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <div class="text-center my-5 row" id="cacheButton">
@@ -101,6 +111,56 @@
             </div>
         </div>
     </section>
+
+    <!-- Formulaire -->
+    <div class="my-3 mx-5" id="orderForm">
+        <p class="my-5 fs-5">Veuillez remplir ce formulaire afin de procéder à votre commande</p>
+        <form class="row g-3" method="post" id="orderInfo">
+            <div class="col-md-4">
+                <label class="form-label">Votre prénom</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom"
+                    pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Votre nom</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom"
+                    pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefaultUsername" class="form-label">Votre adresse email</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="email" class="form-control" id="email" placeholder="Entrez une adresse email"
+                        aria-describedby="inputGroupPrepend" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault03" class="form-label">Votre adresse</label>
+                <input type="text" class="form-control" id="address" placeholder="Entrez une adresse postal"
+                    pattern="^([a-zA-Z0-9'\s]{2,255})$" required>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault03" class="form-label">Votre ville</label>
+                <input type="text" class="form-control" id="city" placeholder="Entrez le nom de votre ville"
+                    pattern="^([a-zA-Z'\s]{2,255})$" required>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidOrder" required>
+                    <label class="form-check-label" for="invalidOrder">
+                        <p data-bs-toggle="tooltip">Veuillez accepter les conditions de vente</p>
+                    </label>
+                </div>
+            </div>
+
+            <div class="text-center my-5 d-md-flex justify-content-md-end">
+                <div class="col-12 col-sm-6 my-4">
+                    <button type="submit" class="btn btn-secondary mx-5" id="order">Passer la commande</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
