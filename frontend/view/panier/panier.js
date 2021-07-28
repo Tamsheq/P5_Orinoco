@@ -64,37 +64,38 @@ $(document).ready(function () {
 
 
     order.addEventListener("submit", (event) => {
-        const contact = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            address: document.getElementById("address").value,
-            email: document.getElementById("email").value,
-            city: document.getElementById("city").value,
+        const datas = {
+            contact: {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                address: document.getElementById("address").value,
+                email: document.getElementById("email").value,
+                city: document.getElementById("city").value,
+            },
             products: [id],
             orderId: 1
         }
-        console.log(contact);
         // validation du formulaire
         if (
-            (regexMail.test(contact.email) == true) &&
-            (regexName.test(contact.firstName) == true) &&
-            (regexName.test(contact.lastName) == true) &&
-            (regexCity.test(contact.city) == true) &&
-            (regexAddress.test(contact.address) == true) &&
-            (checkBox.checked == true)
+            (regexMail.test(datas.contact.email) === true) &&
+            (regexName.test(datas.contact.firstName) === true) &&
+            (regexName.test(datas.contact.lastName) === true) &&
+            (regexCity.test(datas.contact.city) === true) &&
+            (regexAddress.test(datas.contact.address) === true) &&
+            (checkBox.checked === true)
         ) {
-            debugger
             fetch(`${config.host}/api/cameras/order`, {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Allow': 'GET, POST'
                 },
-                body: JSON.stringify(contact)
+                body: JSON.stringify(datas)
             }).then(response => {
-                console.log(response)
+                console.log('response', response);
             }).catch(error => {
-                console.log(error)
+                console.log('error', error);
             });
         } else {
             console.log("ko");
