@@ -15,3 +15,26 @@
     background-color: #c7c9c7;
     text-align: center;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block1 {
+    padding: 16px;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.img-thumbnail {
+    border: none;
+}
+
+.card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding-bottom: 10px;
+}

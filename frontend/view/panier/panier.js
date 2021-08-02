@@ -1,12 +1,12 @@
 const orderForm = document.getElementById("orderForm");
 const emptyBag = document.getElementById("emptyBag");
 
-var monobjet_json = localStorage.getItem("camera");
-var monobjet = JSON.parse(monobjet_json);
+var monpanier_json = localStorage.getItem("camera");
+var monpanier = JSON.parse(monpanier_json);
 // Affichage dans la console
-console.log(monobjet);
+console.log(monpanier);
 
-const id = monobjet && monobjet.id;
+const id = monpanier && monpanier.id;
 
 // Affichage du produit
 if (id) {
@@ -14,15 +14,22 @@ if (id) {
         config = data;
         fetch(`${config.host}/api/cameras/${id}`).then(data => data.json())
             .then(response => {
-                document.querySelector(".container").innerHTML += `<h1 class="row">${response.name}</h1>
-                                                                    <p class="row"><img src="${response.imageUrl}" alt="image de l'appareil"></p>
-                                                                    <p class="row">${response.description}</p>
-                                                                    <p class="row">${monobjet.lenses}</p>
+                document.querySelector(".container").innerHTML += `<tr class="text-center">
+                                                                        <td class="w-25">
+                                                                            <img src="${response.imageUrl}" class="img-fluid img-thumbnail" alt="${response.name}">
+                                                                        </td>
+                                                                        <td class="align-middle">
+                                                                            <span>${response.name}</span>
+                                                                        </td>
+                                                                        <td class="align-middle">
+                                                                            <span>${monpanier.lenses}</span>
+                                                                        </td>
+                                                                   </tr>
                                                                     `;
                 document.querySelector(".product").innerHTML = 'Caméra';
                 document.querySelector(".quantity").innerHTML = '1';
                 document.querySelector(".name").innerHTML = response.name;
-                document.querySelector(".option").innerHTML = monobjet.lenses;
+                document.querySelector(".option").innerHTML = monpanier.lenses;
 
                 const price = response.price.toString();
                 const formatPrice = price.slice(0, -2) + '.' + price.slice(-2, price.lenght);
@@ -36,6 +43,8 @@ if (id) {
     });
 
     emptyBag.classList.add("d-none");
+
+
 
 
     // Si panier vide
@@ -63,7 +72,8 @@ $(document).ready(function () {
     const checkBox = document.getElementById("invalidOrder");
 
 
-    order.addEventListener("submit", (event) => {
+    //order.addEventListener("submit", (event) => {
+    document.getElementById("orderInfo").addEventListener("submit", (e) => {
         const datas = {
             contact: {
                 firstName: document.getElementById("firstName").value,
@@ -76,6 +86,7 @@ $(document).ready(function () {
             orderId: 1
         }
         // validation du formulaire
+        console.log(datas);
         if (
             (regexMail.test(datas.contact.email) === true) &&
             (regexName.test(datas.contact.firstName) === true) &&
@@ -84,6 +95,7 @@ $(document).ready(function () {
             (regexAddress.test(datas.contact.address) === true) &&
             (checkBox.checked === true)
         ) {
+            console.log('toto');
             fetch(`${config.host}/api/cameras/order`, {
                 method: "POST",
                 headers: {
@@ -98,7 +110,7 @@ $(document).ready(function () {
                 console.log('error', error);
             });
         } else {
-            console.log("ko");
+
         }
     });
 });
