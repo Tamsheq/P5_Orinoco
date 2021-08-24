@@ -36,7 +36,8 @@
     <!-- Header and nav-menu -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid mx-2 mx-lg-5">
-            <img class="img-fluid mx-4 mx-lg-0 mr-auto w-25" src="/backend/images/logo.png" alt="Logo de Orinoco" />
+            <img class="img-fluid mx-4 mx-lg-0 mr-auto w-25" src="../../../backend/images/logo.png"
+                alt="Logo de Orinoco" />
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,14 +83,14 @@
                             <th scole="col">Sous-total</th>
                         </tr>
                     </thead>
-                    <tbody class="container">
+                    <tbody class="container text-center">
                         <tr class="text-center">
-                            <td class="product"></td>
-                            <td class="quantity"></td>
-                            <td class="name"></td>
-                            <td class="option"></td>
-                            <td class="price"></td>
-                            <td class="total"></td>
+                            <td class="product w-25"></td>
+                            <td class="quantity align-middle"></td>
+                            <td class="name align-middle"></td>
+                            <td class="option align-middle"></td>
+                            <td class="price align-middle"></td>
+                            <td class="total align-middle"></td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -103,9 +104,6 @@
             </div>
             <div class="text-center my-5 row" id="cacheButton">
                 <div class="col-12 col-sm-6 my-4">
-                    <button type="submit" class="btn btn-secondary mx-5" id="validationBag">Valider le panier</button>
-                </div>
-                <div class="col-12 col-sm-6 my-4">
                     <button type="button" id="clearBag" class="btn btn-danger mx-5">Vider le panier</button>
                 </div>
             </div>
@@ -113,7 +111,7 @@
     </section>
 
     <!-- Formulaire -->
-    <div class="my-3 mx-5" id="orderForm">
+    <div class="my-3 mx-5" id="contactForm">
         <p class="my-5 fs-5">Veuillez remplir ce formulaire afin de procéder à votre commande</p>
         <form class="row g-3" method="post" id="orderInfo">
             <div class="col-md-4">
@@ -162,6 +160,7 @@
         </form>
     </div>
 
+    <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div class="me-5 d-none d-lg-block">

@@ -1,10 +1,10 @@
-const orderForm = document.getElementById("orderForm");
+const contactForm = document.getElementById("contactForm");
 const emptyBag = document.getElementById("emptyBag");
+const orderForm = document.getElementById("orderForm");
 
 var monpanier_json = localStorage.getItem("camera");
 var monpanier = JSON.parse(monpanier_json);
 // Affichage dans la console
-console.log(monpanier);
 
 const id = monpanier && monpanier.id;
 
@@ -14,17 +14,9 @@ if (id) {
         config = data;
         fetch(`${config.host}/api/cameras/${id}`).then(data => data.json())
             .then(response => {
-                document.querySelector(".container").innerHTML += `<tr class="text-center">
-                                                                        <td class="w-25">
-                                                                            <img src="${response.imageUrl}" class="img-fluid img-thumbnail" alt="${response.name}">
-                                                                        </td>
-                                                                   </tr>
-                                                                    `;
-                document.querySelector(".product").innerHTML = `<tr class="text-center">
-                                                                        <td class="w-25">
-                                                                            <img src="${response.imageUrl}" class="img-fluid img-thumbnail" alt="${response.name}">
-                                                                        </td>
-                                                                   </tr>`;
+                document.querySelector(".container").innerHTML += ` `;
+                document.querySelector(".product").innerHTML = ` <img src="${response.imageUrl}" class=" img-fluid img-thumbnail" alt="${response.name}">
+                                                                        `;
                 document.querySelector(".quantity").innerHTML = '1';
                 document.querySelector(".name").innerHTML = response.name;
                 document.querySelector(".option").innerHTML = monpanier.lenses;
@@ -47,19 +39,10 @@ if (id) {
 
     // Si panier vide
 } else {
+    contactForm.classList.add("d-none");
     orderForm.classList.add("d-none");
 }
 $(document).ready(function () {
-    // Vider le panier
-
-    // affichage formulaire et cache buttons
-    const validationBag = document.getElementById("validationBag");
-    const cacheButton = document.getElementById("cacheButton");
-    validationBag.addEventListener("click", () => {
-        orderForm.classList.toggle("d-none");
-        cacheButton.classList.add("d-none");
-
-    });
 
     // Les regex pour les caractères
     const order = document.getElementById("orderInfo");
@@ -81,10 +64,10 @@ $(document).ready(function () {
                 city: document.getElementById("city").value,
             },
             products: [id],
+            panier: monpanier,
             orderId: 1
         }
         // validation du formulaire
-        console.log(datas);
         if (
             (regexMail.test(datas.contact.email) === true) &&
             (regexName.test(datas.contact.firstName) === true) &&
@@ -93,19 +76,19 @@ $(document).ready(function () {
             (regexAddress.test(datas.contact.address) === true) &&
             (checkBox.checked === true)
         ) {
-            console.log('toto');
+
             fetch(`${config.host}/api/cameras/order`, {
                 method: "POST",
                 headers: {
-                    'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Allow': 'GET, POST'
                 },
                 body: JSON.stringify(datas)
             }).then(response => {
-                console.log('response', response);
+                localStorage.setItem("orderForm", JSON.stringify(datas));
+                document.location.href = "/frontend/view/order/order.html";
             }).catch(error => {
-                console.log('error', error);
+                console.log(error);
+
             });
         } else {
 

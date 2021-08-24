@@ -2,7 +2,7 @@ const query = window.location.search;
 const urlParams = new URLSearchParams(query);
 const id = urlParams.get('id');
 
-
+// Récupération et affichage du produit
 loadConfig().then(data => {
     config = data;
     fetch(`${config.host}/api/cameras/${id}`).then(data => data.json())
@@ -25,7 +25,7 @@ loadConfig().then(data => {
                                                                                         <div class="mb-3">${response.description}</div>
                                                                                             <!-- Insertion de la description du produit -->
 
-                                                                                        <button class="addPanier btn btn-secondary"><b>Ajouter au panier</b></button>
+                                                                                        <button data-bs-toggle="modal" data-bs-target="#myModal" class="addPanier btn btn-secondary"><b>Ajouter au panier</b></button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -33,17 +33,17 @@ loadConfig().then(data => {
                                                                     </section>
                                                               `;
 
+            // Fonction permettant de choisir la lentille
             function addLenses(product) {
                 const versionChoice = document.getElementsByClassName("section__choice")[0];
                 for (let lenses of product.lenses) {
                     versionChoice.innerHTML += `<option value="${lenses}">${lenses}</option>`;
-                    console.log("toto")
                 }
             }
             addLenses(response);
 
+            // Redirection du produit vers la page panier
             const addPanier = document.querySelector(".addPanier");
-            console.log(addPanier)
             addPanier.addEventListener("click", (e) => {
                 var monpanier = {
                     id: id,

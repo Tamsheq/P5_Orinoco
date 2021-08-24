@@ -1,3 +1,5 @@
+
+// Affichage des caméras avec les informations
 loadConfig().then(data => {
     config = data;
     fetch(config.host + "/api/cameras/").then(data => data.json())
@@ -23,6 +25,7 @@ loadConfig().then(data => {
                                                                             `;
             }
 
+            // Bouton pour ajouter au panier
             document.querySelectorAll(".addPanier").forEach(star => {
                 star.addEventListener("click", function () {
                     if (thisclassName.indexOf("activated") != -1) {
