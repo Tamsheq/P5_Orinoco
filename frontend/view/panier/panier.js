@@ -1,11 +1,12 @@
+// Récupération des éléments du DOM
 const contactForm = document.getElementById("contactForm");
 const emptyBag = document.getElementById("emptyBag");
 const orderForm = document.getElementById("orderForm");
 
-var monpanier_json = localStorage.getItem("camera");
-var monpanier = JSON.parse(monpanier_json);
-// Affichage dans la console
+// Récupération de la caméra du panier
+var monpanier = getItem();
 
+// Affichage dans la console
 const id = monpanier && monpanier.id;
 
 // Affichage du produit
@@ -28,6 +29,10 @@ if (id) {
                 document.querySelector("#clearBag").addEventListener("click", (e) => {
                     localStorage.clear();
                     location.reload();
+                    alert("Article supprimé")
+
+                    //affiche le prix total
+                    totalPrice();
                 })
             });
     });
@@ -45,7 +50,6 @@ if (id) {
 $(document).ready(function () {
 
     // Les regex pour les caractères
-    const order = document.getElementById("orderInfo");
     const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
     const regexCity = /^([a-zA-Z'\s]{2,255})$/;
     const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
@@ -53,7 +57,7 @@ $(document).ready(function () {
     const checkBox = document.getElementById("invalidOrder");
 
 
-    //order.addEventListener("submit", (event) => {
+    // Le formulaire à remplir accompagner du panier
     document.getElementById("orderInfo").addEventListener("submit", (e) => {
         const datas = {
             contact: {
@@ -90,8 +94,6 @@ $(document).ready(function () {
                 console.log(error);
 
             });
-        } else {
-
         }
     });
 });

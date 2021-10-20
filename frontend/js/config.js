@@ -1,9 +1,4 @@
-function getUrl() {
-    return "http://localhost:3000/api/cameras";
-}
-
-const bag = JSON.parse(localStorage.getItem("cameras")) || [];
-
+// Fonction asynchrone et instructions
 async function loadConfig() {
     let result = await fetch("../../config.json");
     return result.json();

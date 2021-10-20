@@ -1,3 +1,4 @@
+// Récupération des données dans le localStorage
 const order = JSON.parse(localStorage.getItem("orderForm")) || [];
 
 // Affiche les informations clients
@@ -15,12 +16,11 @@ informations.innerHTML += `
  
 `;
 
-// Utilisation des informations dans localStorage
-const monpanier_json = localStorage.getItem("camera");
-const monpanier = JSON.parse(monpanier_json);
+// Utilisation des données du panier dans localStorage
+var monpanier = getItem();
 const id = monpanier && monpanier.id;
 
-// Affiche les informations du panier
+// Affiche les données du panier
 if (id) {
     loadConfig().then(data => {
         config = data;
@@ -32,6 +32,11 @@ if (id) {
                 document.querySelector(".quantity").innerHTML = '1';
                 document.querySelector(".name").innerHTML = response.name;
                 document.querySelector(".option").innerHTML = monpanier.lenses;
+
+                const price = response.price.toString();
+                const formatPrice = price.slice(0, -2) + '.' + price.slice(-2, price.lenght);
+
+                document.querySelector(".price").innerHTML = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(formatPrice);
             });
     });
 }

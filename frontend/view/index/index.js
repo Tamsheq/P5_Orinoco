@@ -1,4 +1,3 @@
-
 // Affichage des caméras avec les informations
 loadConfig().then(data => {
     config = data;
@@ -18,7 +17,7 @@ loadConfig().then(data => {
                                                                                         <h5 class="card-title">${cameras.price / 100} &#8364;</h5>
                                                                                     </div>
                                                                                 </div>
-                                                                                <a href="../produit/produit.html?id=${cameras._id}" class="btn btn-secondary">Acheter ce produit</a>
+                                                                                <a href="../produit/produit.html?id=${cameras._id}" class="btn btn-secondary">Plus d'informations</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -1,3 +1,4 @@
+// créations des constantes
 const query = window.location.search;
 const urlParams = new URLSearchParams(query);
 const id = urlParams.get('id');
@@ -33,13 +34,7 @@ loadConfig().then(data => {
                                                                     </section>
                                                               `;
 
-            // Fonction permettant de choisir la lentille
-            function addLenses(product) {
-                const versionChoice = document.getElementsByClassName("section__choice")[0];
-                for (let lenses of product.lenses) {
-                    versionChoice.innerHTML += `<option value="${lenses}">${lenses}</option>`;
-                }
-            }
+            // Ajout des lentilles dans le champ select
             addLenses(response);
 
             // Redirection du produit vers la page panier
@@ -52,6 +47,7 @@ loadConfig().then(data => {
                 var monpanier_json = JSON.stringify(monpanier);
                 localStorage.setItem("camera", monpanier_json);
                 document.location.href = "http://127.0.0.1:5500/frontend/view/panier/panier.html";
+                alert("L'article est bien ajouter au panier")
             })
 
 
