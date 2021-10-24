@@ -54,7 +54,7 @@ $(document).ready(function () {
     const regexCity = /^([a-zA-Z'\s]{2,255})$/;
     const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
     const regexAddress = /^([a-zA-Z0-9'\s]{2,255})$/;
-    const checkBox = document.getElementById("invalidOrder");
+    const checkBox = document.getElementById("Order");
 
 
     // Le formulaire à remplir accompagner du panier

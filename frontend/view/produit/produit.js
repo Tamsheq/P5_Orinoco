@@ -26,7 +26,7 @@ loadConfig().then(data => {
                                                                                         <div class="mb-3">${response.description}</div>
                                                                                             <!-- Insertion de la description du produit -->
 
-                                                                                        <button data-bs-toggle="modal" data-bs-target="#myModal" class="addPanier btn btn-secondary"><b>Ajouter au panier</b></button>
+                                                                                        <button class="addPanier btn btn-secondary"><b>Ajouter au panier</b></button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
